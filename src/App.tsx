@@ -206,17 +206,20 @@ function App() {
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {/* Logo */}
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
-            <img 
-              src={logo} 
-              alt="Providence Technologies Logo" 
-              style={{ 
-                height: '60px', 
-                width: 'auto', 
-                objectFit: 'contain',
-                transition: 'var(--transition-fast)'
-              }} 
-            />
+          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
+            <div style={{ width: '48px', height: '48px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}>
+              <img 
+                src={logo} 
+                alt="Providence Technologies Logo" 
+                style={{ 
+                  height: '80px', 
+                  width: '80px', 
+                  minWidth: '80px',
+                  objectFit: 'contain',
+                  transition: 'var(--transition-fast)'
+                }} 
+              />
+            </div>
             <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
               <span className="text-gradient">Providence</span>
               <span style={{ fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.25em', color: 'var(--text-secondary)' }}>TECHNOLOGIES</span>
@@ -782,15 +785,18 @@ function App() {
             {/* Branding Column */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
-                <img 
-                  src={logo} 
-                  alt="Providence Technologies Logo" 
-                  style={{ 
-                    height: '60px', 
-                    width: 'auto', 
-                    objectFit: 'contain'
-                  }} 
-                />
+                <div style={{ width: '56px', height: '56px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}>
+                  <img 
+                    src={logo} 
+                    alt="Providence Technologies Logo" 
+                    style={{ 
+                      height: '92px', 
+                      width: '92px', 
+                      minWidth: '92px',
+                      objectFit: 'contain'
+                    }} 
+                  />
+                </div>
               </a>
               <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6', maxWidth: '300px' }}>
                 Turning Ideas Into Digital Reality. Delivering high-converting, mobile-friendly websites designed to grow your business presence.
