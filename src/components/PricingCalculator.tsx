@@ -17,13 +17,10 @@ interface AddOn {
 
 const PricingCalculator: React.FC = () => {
   const basePlans: BasePlan[] = [
-    { id: 'starter', name: 'Starter Website Package', price: 3999, description: '1 Page, Mobile Responsive, WhatsApp Button, Contact Form' },
-    { id: 'professional', name: 'Professional Website Package', price: 7999, description: '5 Pages, Gallery, Google Maps, Contact Form, Domain Setup' },
-    { id: 'premium', name: 'Premium Website Package', price: 14999, description: 'Everything in Professional, Appointment Booking, SEO, Speed Opt' },
-    { id: 'business', name: 'Business Website (Custom)', price: 3999, description: 'For Salons, Gyms, Clinics, Restaurants, CAs, Tuition Classes (₹3,999 - ₹8,999)' },
-    { id: 'portfolio', name: 'Portfolio Website (Custom)', price: 2999, description: 'For Doctors, Freelancers, Architects, Photographers, Students (₹2,999 - ₹6,999)' },
-    { id: 'booking', name: 'Appointment Booking Website', price: 7999, description: 'For doctors, salons, consultants. Form + WhatsApp + Contact (₹7,999 - ₹14,999)' },
-    { id: 'fullstack', name: 'Full Stack Web Application', price: 15000, description: 'Login/Register, Dashboard, Admin Panel, Database integration (₹15,000 - ₹50,000+)' }
+    { id: 'starter', name: 'Starter Website Package', price: 4999, description: '1-3 Pages, Mobile Responsive, WhatsApp Button, Contact Form, Basic SEO' },
+    { id: 'business', name: 'Business Website Package', price: 9999, description: 'Up to 5 Pages, Premium Design, Gallery, Google Maps, WhatsApp, 3 Revisions' },
+    { id: 'premium', name: 'Premium Website Package', price: 19999, description: 'Unlimited Pages, Booking, Blog, Advanced SEO, Speed Opt, Business Email' },
+    { id: 'ai_business', name: 'AI Business Website Package', price: 29999, description: 'Everything in Premium + AI Chatbot, Lead Gen, Custom Dashboard, Automation' }
   ];
 
   const addOns: AddOn[] = [
@@ -35,7 +32,7 @@ const PricingCalculator: React.FC = () => {
     { id: 'whatsapp_integration', name: 'WhatsApp Click-to-Chat Button Setup', price: 500 }
   ];
 
-  const [selectedPlanId, setSelectedPlanId] = useState<string>('professional');
+  const [selectedPlanId, setSelectedPlanId] = useState<string>('business');
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [extraPages, setExtraPages] = useState<number>(0);
 

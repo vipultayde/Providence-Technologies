@@ -71,55 +71,86 @@ function App() {
   const packages = [
     {
       name: "Starter Website",
-      price: "₹3,999",
+      price: "₹4,999",
       delivery: "3 – 5 Days",
       popular: false,
-      desc: "Perfect for single-page business presence or campaigns.",
+      badge: null,
+      desc: "Perfect for: Shops, Salons, Local Businesses, Personal Portfolios.",
       features: [
-        "1 Page Structure",
+        "1-3 Pages Structure",
         "Mobile Responsive Design",
-        "WhatsApp Direct Chat Button",
-        "Contact Form Setup",
-        "Basic SEO Setup",
+        "WhatsApp Direct Button",
+        "Contact Form Integration",
+        "Basic SEO Optimization",
         "Free SSL Certificate",
         "1 Free Revision",
-        "1 Month Support"
+        "1 Month Support",
+        "❌ Domain Not Included",
+        "❌ Hosting Not Included"
       ]
     },
     {
-      name: "Professional Website",
-      price: "₹7,999",
+      name: "Business Website",
+      price: "₹9,999",
       delivery: "5 – 10 Days",
       popular: true,
-      desc: "Ideal for growing businesses that need a professional multi-page online presence.",
+      badge: "🔥 Recommended for Growing Businesses",
+      desc: "Perfect for: Doctors, Clinics, Coaching Classes, Startups, Home Care.",
       features: [
-        "5 Pages Custom Layout",
-        "Mobile Responsive Design",
-        "Image & Video Gallery",
+        "Up to 5 Pages Custom Layout",
+        "Premium Layout Design",
+        "Gallery Section & Media",
         "Google Maps Integration",
         "WhatsApp Integration",
-        "Contact Form Integration",
-        "Domain Registration assistance",
+        "Contact & Inquiry Forms",
         "Basic SEO Optimization",
+        "Domain Setup Assistance",
         "3 Free Revisions",
-        "3 Months Support"
+        "3 Months Support",
+        "❌ Domain Not Included",
+        "❌ Hosting Not Included"
       ]
     },
     {
       name: "Premium Website",
-      price: "₹14,999",
+      price: "₹19,999",
       delivery: "7 – 14 Days",
       popular: false,
-      desc: "Everything in Professional with appointment booking and advanced search engine support.",
+      badge: "⭐ Most Chosen By Small Businesses",
+      desc: "Perfect for: Companies, Agencies, Large Businesses.",
       features: [
-        "Everything in Professional",
+        "Everything in Business",
+        "Unlimited Pages (Client adds)",
         "Appointment Booking System",
-        "SEO Setup & Schema Audit",
+        "Blog Setup / CMS Integration",
+        "Advanced SEO & Schema",
         "Google Analytics Setup",
+        "Search Console submission",
         "Speed Optimization (CDN)",
-        "Google Search Console submission",
         "Advanced Security Setup",
-        "6 Months Priority Support"
+        "Business Email Setup",
+        "6 Months Priority Support",
+        "❌ Domain Not Included",
+        "❌ Hosting Not Included"
+      ]
+    },
+    {
+      name: "AI Business Website",
+      price: "₹29,999+",
+      delivery: "10 – 20 Days",
+      popular: false,
+      badge: "⚡ Our USP - Ultimate Automation",
+      desc: "Perfect for: Forward-thinking businesses wanting automated AI workflows.",
+      features: [
+        "Everything in Premium",
+        "Integrated AI Chatbot Agent",
+        "Smart Lead Gen System",
+        "Custom Client Dashboard",
+        "AI FAQ Assistant",
+        "Business Automation Rules",
+        "6 Months Priority Support",
+        "❌ Domain Not Included",
+        "❌ Hosting Not Included"
       ]
     }
   ];
@@ -513,7 +544,7 @@ function App() {
           </div>
 
           {/* Cards Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '28px', marginBottom: '60px' }} className="pricing-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '28px', marginBottom: '40px' }} className="pricing-grid">
             {packages.map((pkg, index) => (
               <div 
                 key={index} 
@@ -544,6 +575,21 @@ function App() {
                 )}
                 
                 <div>
+                  {pkg.badge && (
+                    <div style={{ 
+                      display: 'inline-block',
+                      padding: '4px 10px', 
+                      borderRadius: '8px', 
+                      background: pkg.name.includes('AI') ? 'rgba(168, 85, 247, 0.15)' : 'rgba(0, 242, 254, 0.1)', 
+                      color: pkg.name.includes('AI') ? 'var(--accent-purple)' : 'var(--accent-cyan)', 
+                      fontSize: '0.7rem', 
+                      fontWeight: '700', 
+                      marginBottom: '12px',
+                      border: pkg.name.includes('AI') ? '1px solid rgba(168, 85, 247, 0.2)' : '1px solid rgba(0, 242, 254, 0.2)'
+                    }}>
+                      {pkg.badge}
+                    </div>
+                  )}
                   <h3 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '8px', fontFamily: 'var(--font-display)' }}>{pkg.name}</h3>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '24px', minHeight: '40px' }}>{pkg.desc}</p>
                   
@@ -559,8 +605,8 @@ function App() {
                   <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '24px', marginBottom: '32px' }}>
                     {pkg.features.map((feat, i) => (
                       <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                        <Check size={14} style={{ color: 'var(--accent-cyan)', marginTop: '3px', flexShrink: 0 }} />
-                        <span>{feat}</span>
+                        <Check size={14} style={{ color: feat.startsWith('❌') ? '#ef4444' : 'var(--accent-cyan)', marginTop: '3px', flexShrink: 0 }} />
+                        <span style={{ color: feat.startsWith('❌') ? 'var(--text-muted)' : 'inherit' }}>{feat}</span>
                       </li>
                     ))}
                   </ul>
@@ -577,6 +623,39 @@ function App() {
                 </a>
               </div>
             ))}
+          </div>
+
+          {/* Trust Badges Banner */}
+          <div 
+            className="glass-panel" 
+            style={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              justifyContent: 'space-around', 
+              alignItems: 'center', 
+              padding: '20px 30px', 
+              borderRadius: '16px', 
+              gap: '20px', 
+              marginBottom: '60px',
+              background: 'linear-gradient(135deg, rgba(19, 27, 46, 0.4) 0%, rgba(30, 41, 66, 0.2) 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.03)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-secondary)' }}>
+              <Check size={16} style={{ color: 'var(--accent-cyan)' }} /> <span>Mobile Responsive</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-secondary)' }}>
+              <Check size={16} style={{ color: 'var(--accent-cyan)' }} /> <span>SEO Friendly</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-secondary)' }}>
+              <Check size={16} style={{ color: 'var(--accent-cyan)' }} /> <span>Fast Loading</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-secondary)' }}>
+              <Check size={16} style={{ color: 'var(--accent-cyan)' }} /> <span>Secure SSL</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-secondary)' }}>
+              <Check size={16} style={{ color: 'var(--accent-cyan)' }} /> <span>WhatsApp Integrated</span>
+            </div>
           </div>
 
           {/* Pricing Calculator */}
