@@ -211,7 +211,7 @@ function App() {
               src={logo} 
               alt="Providence Technologies Logo" 
               style={{ 
-                height: '40px', 
+                height: '60px', 
                 width: 'auto', 
                 objectFit: 'contain',
                 transition: 'var(--transition-fast)'
@@ -786,7 +786,7 @@ function App() {
                   src={logo} 
                   alt="Providence Technologies Logo" 
                   style={{ 
-                    height: '42px', 
+                    height: '60px', 
                     width: 'auto', 
                     objectFit: 'contain'
                   }} 
